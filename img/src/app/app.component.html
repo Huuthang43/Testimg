@@ -1,0 +1,8 @@
+<div>
+  <textarea class="discript" name="paragraph_text" cols="21" rows="5" (keyup)="para(message.value)" #message></textarea><br>
+  <button  mat-button (click)="fileInput.click()" >Upload a file</button>
+  <input class="visuallyhidden" type="file" (change)="onFileUpload($event)" accept=".png, .jpg, .jpeg" #fileInput>
+</div>
+
+<app-img-card></app-img-card>
+<router-outlet></router-outlet>

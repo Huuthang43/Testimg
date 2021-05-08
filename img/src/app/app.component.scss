@@ -1,0 +1,38 @@
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+div{
+    text-align: center;
+    
+    button {
+        // margin: 5%;
+        // padding: 0;
+        // border: none;
+        // background: none;
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+}
+.discript {
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    font-size: 20px;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    background: #f1f3f4;
+    overflow: auto;
+    resize: vertical;
+}
