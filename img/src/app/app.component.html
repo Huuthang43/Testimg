@@ -1,8 +1,9 @@
 <div>
-  <textarea class="discript" name="paragraph_text" cols="21" rows="5" (keyup)="para(message.value)" #message></textarea><br>
-  <button  mat-button (click)="fileInput.click()" >Upload a file</button>
-  <input class="visuallyhidden" type="file" (change)="onFileUpload($event)" accept=".png, .jpg, .jpeg" #fileInput>
+  <textarea class="discript" name="paragraph_text" cols="21" rows="5" (keyup)="para(message.value)" #message></textarea><!-- khung ghi mô tả tấm hình --><br>
+  
+  <button  mat-button (click)="fileInput.click()" >Upload a file</button><!-- nút hiển thị để chọn ảnh upload lên -->
+  <input class="visuallyhidden" type="file" (change)="onFileUpload($event)" accept=".png, .jpg, .jpeg" #fileInput><!-- giới hạn loại file ảnh được upload lên -->
 </div>
 
-<app-img-card></app-img-card>
+<app-img-card></app-img-card><!-- gọi lại component img-card -->
 <router-outlet></router-outlet>

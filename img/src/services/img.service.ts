@@ -11,41 +11,46 @@ export class ImgService {
   constructor(private http: HttpClient) {
     this.getData();
   }
-  getRandomId() {
+  getRandomId() {//lấy id ngẫu nhiên
     return Math.floor(Math.random() * 999999);
   }
 
-  onFileUpload(event, id,message) {
+  onFileUpload(event, id,message) {//upload file ảnh
     this.selecetdFile = event.target.files[0];
 
     const reader = new FileReader();
     reader.onload = () => {
       this.img = reader.result as string;
-      if (id == -1) {
-        this.newUpload(this.img, this.getRandomId(), event.target.files[0].name,message);
+      if (id == -1) {//kiểm tra nếu id=-1 thì được upload mới
+        this.newUpload(this.img, this.getRandomId(), event.target.files[0].name,message,Date);
       } else {
-        this.updateImg(this.img, id);
+        this.updateImg(this.img, id);//còn không thì giữ nguyên ảnh hiện tại với id cũ
       }
     };
     reader.readAsDataURL(this.selecetdFile);
   }
 
 
-
-  async newUpload(img, id, name,message) {
+  //Tạo ảnh mới
+  async newUpload(img, id, name,message,createDate) {
     let data = {
       id: id,
       img: img,
       name: name,
-      message:message
+      message:message,
+      createDate:createDate,
     }
     await this.http.post(environment.endpoint + "uploadImg", data).toPromise();
     this.getData();
   }
+
+
+  //lấy dữ liệu ảnh ra
   async getData() {
     this.Imgs = await this.http.get(environment.endpoint + "imgs").toPromise();
   }
 
+  //Cập nhật ảnh
   async updateImg(img, id) {
     let data = {
       id: id,
@@ -56,6 +61,8 @@ export class ImgService {
     this.getData();
   }
 
+
+  //Xóa ảnh dựa vào id 
   async delImg(id) {
     await this.http.delete(environment.endpoint + "delete?id=" + id).toPromise();
     this.getData();

@@ -3,25 +3,30 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(cors());
-const taskSchema = require("../schemas/task.schemas");
+const taskSchema = require("../schemas/task.schemas");//lấy model schema
 const body = require("body-parser");
 app.use(body.json());
 const Database = require("./database");
 const db = new Database();
 const Task = mongoose.model("img", taskSchema);
 
+
+//lấy tất cả ảnh ra
 app.get("/imgs", async (req, res) => {
   let result = await Task.find();
   res.send(result);
 });
 
+
+//đẩy ảnh mới lên chứa các thuộc tính
 app.post("/uploadImg",  (req, res) => {
   let { id,img,name,message } = req.body;
-  let task1 = new Task({
+  let task1 = new Task({//tạo các thuộc tính cho ảnh
     id: id,
     img: img,
     name:name,
-    message:message
+    message:message,
+    createDate:Date.now(),
   });
   // console.log(id,name);
   (async () => {
@@ -30,6 +35,8 @@ app.post("/uploadImg",  (req, res) => {
   })();
 });
 
+
+//Xóa ảnh dựa theo id của tấm ảnh
 app.delete("/delete",  (req, res) => {
   let { id } = req.query;
   (async () => {
@@ -38,6 +45,8 @@ app.delete("/delete",  (req, res) => {
   })();
 });
 
+
+//Cập nhật ảnh mới dựa vào id tấm ảnh
 app.put("/update",  (req, res) => {
   let { id,img } = req.body;
   // console.log(id,img)

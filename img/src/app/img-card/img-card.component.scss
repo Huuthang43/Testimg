@@ -3,26 +3,26 @@
 }
 
 .example-header-image {
-    background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
-    background-size: cover;
+    background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");//ảnh background;
+    background-size: cover;//kích thước background
 }
 
 .visuallyhidden {
-    border: 0;
+    border: 0;//bo góc cho khung
     clip: rect(0 0 0 0);
-    height: 1px;
+    height: 1px;//chiều cao
     margin: -1px;
-    overflow: hidden;
+    overflow: hidden;//độ mờ
     padding: 0;
-    position: absolute;
-    width: 1px;
+    position: absolute;//vị trí khung 
+    width: 1px;//độ rộng
 }
 mat-card-actions {
-    text-align: center;
+    text-align: center;//đẩy chữ ra giữa thẻ
     button {
         margin: 5%;
         padding: 0;
-        border: none;
-        background: none;
+        border: none;//bo góc
+        background: none;//khung nền
     }
 }

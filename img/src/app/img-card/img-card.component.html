@@ -2,25 +2,26 @@
     <mat-card class="example-card">
 
         <img mat-card-image [src]="img.img" alt="Photo">
-        <mat-card-header>
+        <mat-card-header> 
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>{{img.name}}</mat-card-title>
+            <mat-card-title>{{img.name}}</mat-card-title><!-- tên của tấm hình -->
+            <mat-card-title>{{img.createDate}}</mat-card-title><!-- tên của tấm hình -->
             <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle>  -->
         </mat-card-header>
         <mat-card-content>
-            <p>{{img.message}}</p>
+            <p>{{img.message}}</p><!-- mô tả của tấm hình -->
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button (click)="fileInput.click()">
+            <button mat-button (click)="fileInput.click()"><!--nút có chức năng hiển thị file chọn để upload  -->
                 <mat-icon aria-hidden="false" aria-label="Example home icon">file_upload</mat-icon>
             </button>
-            <button mat-button (click)="del(img.id)">
+            <button mat-button (click)="del(img.id)"><!-- nút có chức năng xóa tấm ảnh -->
                 <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
             </button>
         </mat-card-actions>
 
         <input type="file" class="visuallyhidden" (change)="onFileUpload($event,img.id)" accept=".png, .jpg, .jpeg"
-            #fileInput>
+            #fileInput><!-- giới hạn loại file ảnh được upload lên  -->
 
     </mat-card>
 

@@ -15,12 +15,15 @@ export class ImgCardComponent implements OnInit {
     
   }
 
-
+//đẩy file ảnh lên service để kiểm tra
   onFileUpload(event,id) {
     // this.imgSer.onFileUpload(event,"update");
     this.imgSer.onFileUpload(event,id,"none");
 
   }
+
+
+  //xóa ảnh
   del(id){
     this.imgSer.delImg(id);
   }
